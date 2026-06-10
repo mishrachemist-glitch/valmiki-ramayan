@@ -3,184 +3,270 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valmiki Ramayan | Pro</title>
+
+<title>वाल्मीकि रामायण</title>
+
+<link rel="icon" href="logo.png">
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #0f0f0f;
-        color: white;
-        overflow-x: hidden;
-    }
 
-    /* HERO SECTION */
-    .hero {
-        height: 100vh;
-        background: url("https://upload.wikimedia.org/wikipedia/commons/6/6a/Ram_Mandir_Ayodhya.jpg") center/cover fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    .overlay {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.55);
-    }
+body{
+font-family:Mangal, Arial, sans-serif;
+background:#0f0f0f;
+color:white;
+overflow-x:hidden;
+}
 
-    .hero-text {
-        position: relative;
-        text-align: center;
-        z-index: 2;
-        animation: fadeIn 2s ease;
-    }
+/* Hero */
 
-    .hero-text h1 {
-        font-size: 40px;
-        margin: 0;
-    }
+.hero{
+height:100vh;
+background:url('rammandir.jpg') center center/cover no-repeat;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
 
-    .hero-text p {
-        font-size: 18px;
-        opacity: 0.9;
-    }
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+}
 
-    @keyframes fadeIn {
-        from {opacity: 0; transform: translateY(20px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
+.hero-content{
+position:relative;
+z-index:2;
+padding:20px;
+}
 
-    /* CONTENT */
-    .section {
-        padding: 50px 20px;
-        text-align: center;
-        background: #111;
-    }
+.hero-content img{
+width:250px;
+max-width:80%;
+margin-bottom:20px;
+animation:zoomIn 2s ease;
+}
 
-    .card {
-        max-width: 800px;
-        margin: auto;
-        background: #1c1c1c;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 0 15px rgba(255,255,255,0.05);
-    }
+.hero-content h1{
+font-size:42px;
+margin-bottom:10px;
+}
 
-    img {
-        width: 100%;
-        border-radius: 12px;
-        margin-top: 15px;
-    }
+.hero-content p{
+font-size:20px;
+}
 
-    /* FLOATING FLOWERS */
-    .flower {
-        position: fixed;
-        top: -10px;
-        font-size: 20px;
-        animation: fall linear infinite;
-        opacity: 0.8;
-    }
+@keyframes zoomIn{
+from{
+transform:scale(0.5);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
 
-    @keyframes fall {
-        to {
-            transform: translateY(110vh) rotate(360deg);
-        }
-    }
+/* Flowers */
 
-    /* BUTTONS */
-    .btn {
-        padding: 10px 15px;
-        border: none;
-        margin: 10px;
-        border-radius: 8px;
-        cursor: pointer;
-        background: #b30000;
-        color: white;
-    }
+.flower{
+position:fixed;
+top:-20px;
+font-size:22px;
+pointer-events:none;
+animation:fall linear infinite;
+z-index:999;
+}
 
-    .btn:hover {
-        background: #ff0000;
-    }
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
 
-    /* AUDIO CONTROL */
-    #audioBox {
-        position: fixed;
-        bottom: 15px;
-        right: 15px;
-        z-index: 999;
-    }
+/* Sections */
+
+.section{
+padding:60px 20px;
+text-align:center;
+}
+
+.section h2{
+margin-bottom:20px;
+font-size:34px;
+color:#ffd700;
+}
+
+.section p{
+max-width:900px;
+margin:auto;
+line-height:1.8;
+font-size:18px;
+}
+
+.ram-img{
+width:90%;
+max-width:600px;
+border-radius:15px;
+margin-top:25px;
+box-shadow:0 0 20px rgba(255,255,255,0.15);
+}
+
+/* Shlok */
+
+.shlok{
+margin:40px auto;
+padding:20px;
+max-width:800px;
+font-size:24px;
+color:#ffd700;
+}
+
+/* Button */
+
+.btn{
+background:#ff6a00;
+color:white;
+border:none;
+padding:12px 25px;
+font-size:18px;
+border-radius:8px;
+cursor:pointer;
+margin-top:20px;
+}
+
+.btn:hover{
+background:#ff4500;
+}
+
+/* Footer */
+
+footer{
+background:#111;
+padding:25px;
+text-align:center;
+font-size:16px;
+border-top:1px solid #333;
+}
 
 </style>
 </head>
 
 <body>
 
-<!-- FLOATING FLOWERS -->
+<!-- Flowers -->
+
 <script>
-const emojis = ["🌸","🌺","🌼","🏵️"];
-for(let i=0;i<25;i++){
-    let f = document.createElement("div");
-    f.className = "flower";
-    f.style.left = Math.random()*100 + "vw";
-    f.style.animationDuration = (3+Math.random()*5) + "s";
-    f.innerText = emojis[Math.floor(Math.random()*emojis.length)];
-    document.body.appendChild(f);
+const flowers=["🌸","🌺","🌼","🏵️"];
+
+for(let i=0;i<30;i++){
+
+let flower=document.createElement("div");
+flower.className="flower";
+
+flower.innerHTML=
+flowers[Math.floor(Math.random()*flowers.length)];
+
+flower.style.left=Math.random()*100+"vw";
+
+flower.style.animationDuration=
+(4+Math.random()*6)+"s";
+
+document.body.appendChild(flower);
 }
 </script>
 
-<!-- HERO -->
+<!-- Hero -->
+
 <div class="hero">
-    <div class="overlay"></div>
-    <div class="hero-text">
-        <h1>📖 Valmiki Ramayan</h1>
-        <p>🏹 Maryada Purushottam Shri Ram</p>
-        <button class="btn" onclick="scrollToContent()">Explore</button>
-    </div>
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<img src="logo.png" alt="वाल्मीकि रामायण">
+
+<h1>🚩 वाल्मीकि रामायण 🚩</h1>
+
+<p>जय श्री राम</p>
+
+<button class="btn"
+onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+प्रवेश करें
+</button>
+
 </div>
 
-<!-- CONTENT -->
-<div class="section" id="content">
-    <div class="card">
-
-        <h2>🙏 Ayodhya Ram Mandir</h2>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Ram_Mandir_Ayodhya.jpg">
-
-        <p>Ayodhya me sthit divya Ram Mandir, bharatiya sanskriti aur dharm ka pratik hai.</p>
-
-        <h2>🏹 Shri Ram</h2>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Rama_with_bow.jpg">
-
-        <p>Prabhu Shri Ram satya, dharma aur maryada ke adarsh hain.</p>
-
-    </div>
 </div>
 
-<!-- AUDIO -->
-<div id="audioBox">
-    <button class="btn" onclick="toggleMusic()">🎵 Bhajan</button>
-</div>
+<!-- About -->
 
-<audio id="bgm" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
-</audio>
+<section class="section" id="about">
+
+<h2>🏛️ श्री राम जन्मभूमि अयोध्या</h2>
+
+<p>
+अयोध्या में स्थित श्री राम मंदिर सनातन संस्कृति,
+आस्था और मर्यादा का दिव्य प्रतीक है।
+</p>
+
+<img src="rammandir.jpg" class="ram-img">
+
+</section>
+
+<!-- Shri Ram -->
+
+<section class="section">
+
+<h2>🏹 प्रभु श्री राम</h2>
+
+<p>
+मर्यादा पुरुषोत्तम भगवान श्री राम सत्य,
+धर्म, त्याग और आदर्श जीवन के प्रतीक हैं।
+</p>
+
+<img src="shriram.jpg" class="ram-img">
+
+</section>
+
+<!-- Shlok -->
+
+<div class="shlok" id="shlok">
+॥ श्रीराम जय राम जय जय राम ॥
+</div>
 
 <script>
-function scrollToContent(){
-    document.getElementById("content").scrollIntoView({behavior:"smooth"});
-}
 
-function toggleMusic(){
-    let audio = document.getElementById("bgm");
-    if(audio.paused){
-        audio.play();
-    } else {
-        audio.pause();
-    }
-}
+const shloks=[
+"॥ श्रीराम जय राम जय जय राम ॥",
+"॥ धर्मो रक्षति रक्षितः ॥",
+"॥ रामो विग्रहवान् धर्मः ॥",
+"॥ सत्यमेव जयते ॥"
+];
+
+let index=0;
+
+setInterval(()=>{
+index=(index+1)%shloks.length;
+document.getElementById("shlok").innerHTML=shloks[index];
+},3000);
+
 </script>
+
+<footer>
+
+🚩 वाल्मीकि रामायण 🚩<br>
+जय श्री राम
+
+</footer>
 
 </body>
 </html>
