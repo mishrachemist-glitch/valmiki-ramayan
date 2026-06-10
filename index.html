@@ -8,58 +8,52 @@
 <link rel="icon" href="logo.png">
 
 <style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:linear-gradient(to bottom,#7a0000,#1a1a1a);
-color:white;
-text-align:center;
-overflow-x:hidden;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    background:#000;
+    overflow:hidden;
+    font-family:Mangal, Arial, sans-serif;
 }
 
 .container{
-padding:40px 20px;
+    position:relative;
+    width:100vw;
+    height:100vh;
 }
 
 .logo{
-width:320px;
-max-width:90%;
-margin-top:30px;
-border-radius:20px;
-box-shadow:0 0 25px rgba(255,215,0,0.4);
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#000;
 }
 
-h1{
-font-size:48px;
-margin-top:20px;
-color:#FFD700;
+.text{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#FFD700;
+    font-size:32px;
+    font-weight:bold;
+    text-shadow:0 0 10px #ff9900;
+    animation:blink 2s infinite;
 }
 
-.subtitle{
-font-size:24px;
-margin-top:10px;
+@keyframes blink{
+    0%{opacity:1;}
+    50%{opacity:0.5;}
+    100%{opacity:1;}
 }
 
-.shlok{
-margin:40px auto;
-font-size:26px;
-color:#FFD700;
-font-weight:bold;
-}
-
-.card{
-max-width:900px;
-margin:30px auto;
-padding:25px;
-background:rgba(255,255,255,0.08);
-border-radius:15px;
-}
-
-footer{
-margin-top:40px;
-padding:20px;
-background:rgba(0,0,0,0.3);
-}
 </style>
 </head>
 
@@ -67,48 +61,13 @@ background:rgba(0,0,0,0.3);
 
 <div class="container">
 
-<img src="logo.png" class="logo" alt="वाल्मीकि रामायण">
+    <img src="logo.png" alt="वाल्मीकि रामायण" class="logo">
 
-<h1>वाल्मीकि रामायण</h1>
-
-<div class="subtitle">
-🚩 जय श्री राम 🚩
-</div>
-
-<div class="shlok" id="shlok">
-॥ श्रीराम जय राम जय जय राम ॥
-</div>
-
-<div class="card">
-<h2>📖 स्वागत है</h2>
-<p>
-महर्षि वाल्मीकि द्वारा रचित रामायण भारतीय संस्कृति,
-धर्म, आदर्श और मर्यादा का अमूल्य ग्रंथ है।
-</p>
-</div>
+    <div class="text">
+        🚩 जय श्री राम 🚩
+    </div>
 
 </div>
-
-<footer>
-🚩 वाल्मीकि रामायण 🚩<br>
-जय श्री राम
-</footer>
-
-<script>
-const shloks = [
-"॥ श्रीराम जय राम जय जय राम ॥",
-"॥ रामो विग्रहवान् धर्मः ॥",
-"॥ धर्मो रक्षति रक्षितः ॥",
-"॥ सत्यमेव जयते ॥"
-];
-
-let i = 0;
-
-setInterval(() => {
-i = (i + 1) % shloks.length;
-document.getElementById("shlok").innerHTML = shloks[i];
-}, 3000);
-</script>
 
 </body>
 </html>
