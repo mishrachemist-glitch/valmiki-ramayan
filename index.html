@@ -10,48 +10,115 @@
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-html,body{
-    width:100%;
-    height:100%;
-    background:#000;
-    overflow:hidden;
-    font-family:Mangal, Arial, sans-serif;
+body{
+font-family:Mangal, Arial, sans-serif;
+background:linear-gradient(180deg,#7a0000,#1a0000,#000);
+color:white;
+min-height:100vh;
+overflow-x:hidden;
+position:relative;
 }
 
-.container{
-    position:relative;
-    width:100vw;
-    height:100vh;
+/* Watermark Logo */
+
+.watermark{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:80%;
+max-width:900px;
+opacity:0.08;
+z-index:0;
+pointer-events:none;
 }
 
-.logo{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    background:#000;
+/* Content */
+
+.content{
+position:relative;
+z-index:2;
+padding:30px 20px;
+text-align:center;
 }
 
-.text{
-    position:absolute;
-    bottom:20px;
-    left:50%;
-    transform:translateX(-50%);
-    color:#FFD700;
-    font-size:32px;
-    font-weight:bold;
-    text-shadow:0 0 10px #ff9900;
-    animation:blink 2s infinite;
+h1{
+font-size:48px;
+color:#FFD700;
+margin-top:20px;
+text-shadow:0 0 15px rgba(255,215,0,0.5);
 }
 
-@keyframes blink{
-    0%{opacity:1;}
-    50%{opacity:0.5;}
-    100%{opacity:1;}
+.subtitle{
+font-size:24px;
+margin-top:10px;
+color:#ffcc66;
+}
+
+.card{
+max-width:1000px;
+margin:40px auto;
+padding:35px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(5px);
+border-radius:20px;
+border:1px solid rgba(255,215,0,0.2);
+box-shadow:0 0 30px rgba(255,215,0,0.15);
+}
+
+.stotra{
+font-size:22px;
+line-height:2;
+color:#fff7d6;
+text-align:center;
+}
+
+footer{
+margin-top:40px;
+padding:20px;
+text-align:center;
+color:#ffd700;
+}
+
+/* Diya Glow */
+
+.glow{
+position:fixed;
+bottom:-100px;
+left:50%;
+transform:translateX(-50%);
+width:500px;
+height:500px;
+background:radial-gradient(circle,
+rgba(255,165,0,0.4),
+rgba(255,165,0,0.05),
+transparent);
+z-index:1;
+pointer-events:none;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+h1{
+font-size:34px;
+}
+
+.stotra{
+font-size:18px;
+line-height:1.8;
+}
+
+.card{
+padding:20px;
+}
+
 }
 
 </style>
@@ -59,13 +126,59 @@ html,body{
 
 <body>
 
-<div class="container">
+<img src="logo.png" class="watermark" alt="वाल्मीकि रामायण">
 
-    <img src="logo.png" alt="वाल्मीकि रामायण" class="logo">
+<div class="glow"></div>
 
-    <div class="text">
-        🚩 जय श्री राम 🚩
-    </div>
+<div class="content">
+
+<h1>🚩 वाल्मीकि रामायण 🚩</h1>
+
+<div class="subtitle">
+जय श्री राम
+</div>
+
+<div class="card">
+
+<div class="stotra">
+
+श्री रामचन्द्र कृपालु भजु मन<br>
+हरण भव भय दारुणम् ।<br><br>
+
+नव कंज लोचन कंज मुख<br>
+कर कंज पद कंजारुणम् ॥<br><br>
+
+कन्दर्प अगणित अमित छवि<br>
+नव नील नीरद सुन्दरम् ।<br><br>
+
+पट पीत मानहु तड़ित रुचि<br>
+शुचि नौमि जनक सुतावरम् ॥<br><br>
+
+भजु दीन बन्धु दिनेश दानव<br>
+दैत्य वंश निकन्दनम् ।<br><br>
+
+रघुनन्द आनन्द कन्द<br>
+कौशल चन्द दशरथ नन्दनम् ॥<br><br>
+
+सिर मुकुट कुण्डल तिलक चारु<br>
+उदारु अंग विभूषणम् ।<br><br>
+
+आजानुभुज शर चाप धर<br>
+संग्राम जित खरदूषणम् ॥<br><br>
+
+इति वदति तुलसीदास<br>
+शंकर शेष मुनि मन रंजनम् ।<br><br>
+
+मम हृदय कंज निवास कुरु<br>
+कामादि खल दल गंजनम् ॥
+
+</div>
+
+</div>
+
+<footer>
+🚩 जय श्री राम 🚩
+</footer>
 
 </div>
 
